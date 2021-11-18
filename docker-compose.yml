@@ -1,1 +1,12 @@
 version: '3.8'
+
+services:
+  db:
+    build: ./mariadb
+  volumes:
+      - "./database:/var/lib/mysql"
+      - "./logs/mariadb:/var/log/mysql"
+  environment:
+      MYSQL_ROOT_PASSWORD: 123456
+  network:
+      - default
